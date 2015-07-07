@@ -6,12 +6,35 @@ class PostsController < ApplicationController
 
 #will have to change 
   def index
-    @all_posts = Post.all 
-    @posts = []
+    @posts = Post.all 
   end
+
+  def looking_for 
+    @all_posts = Post.all
+    @posts = []
+    @all_posts.each do |post|
+      if post.looking_for 
+        @posts << post 
+      end 
+    end 
+    @posts 
+  end 
+
+  def offering  
+    @all_posts = Post.all
+    @posts = []
+    @all_posts.each do |post|
+      if post.looking_for == false 
+        @posts << post 
+      end 
+    end 
+    @posts 
+  end 
 
   def show 
     @post = Post.find params[:id]
+    user_id = @post.user_id
+    @user = User.find(user_id)
   end
 
   def edit 
@@ -45,6 +68,6 @@ class PostsController < ApplicationController
 
   private
     def post_params
-      params.require(:post).permit(:title, :topic, :price, :location, :description, :looking_for)
+      params.require(:post).permit(:title, :topic_id, :price, :location, :description, :looking_for)
    end
 end 

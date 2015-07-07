@@ -1,7 +1,7 @@
 <%= simple_form_for @post do |f| %>
 
 	<%= f.input :title %>
-	<%= f.input :topic, :collection => ['Technology', 'Language', 'Vocational Skill'] %>
+	<%= f.input :topic_id, :collection => Topic.all %>
 	<%= f.input :location %>
 	<%= f.input :price %>
 	<%= f.input :description %> 

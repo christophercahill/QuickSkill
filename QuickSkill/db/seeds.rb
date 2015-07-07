@@ -5,3 +5,19 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+Topic.delete_all
+
+Topic.create! name: "Culinary"
+Topic.create! name: "Finance/Accounting"
+Topic.create! name: "Languages" 
+Topic.create! name: "General Engineering" 
+Topic.create! name: "Music/Art" 
+Topic.create! name: "Recreational"
+Topic.create! name: "Software Engineering"
+Topic.create! name: "Tutoring (High School)"
+Topic.create! name: "Tutoring (University)"
+Topic.create! name: "Vocational Skills"
+Topic.create! name: "Web Development"
+Topic.create! name: "Other — Occupational"
+

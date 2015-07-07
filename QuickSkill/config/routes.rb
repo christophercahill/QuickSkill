@@ -1,11 +1,20 @@
 Rails.application.routes.draw do
-  devise_for :users do 
-    resources :posts 
+  devise_for :users, only: [:new, :create] do 
+    resources :posts   
   end 
 
   resources :posts do 
     resources :reviews 
   end 
+
+  resources :topics do 
+    resources :posts 
+  end 
+
+  devise_for :users, :controllers => {registrations: 'devise/registrations'}
+
+  get '/looking_for', to: 'posts#looking_for'
+  get '/offering', to: 'posts#offering'
 
   root 'welcome#index'
 

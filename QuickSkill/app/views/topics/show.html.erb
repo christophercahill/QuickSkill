@@ -1,0 +1,10 @@
+<%= @topic.name %>
+
+<br> 
+
+<ul> 
+<% @posts.each do |post| %>
+<li><%= post.title %></li>
+<% end %>
+</ul>
+
