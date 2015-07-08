@@ -1,0 +1,17 @@
+<p>
+  <strong>Profile</strong>
+  <%= profile.name %>
+  <%= profile.location %>
+  <%= profile.biography %>
+</p>
+
+<p>
+
+<% if current_user.id == profile.user_id %>
+<%= link_to 'Edit', edit_user_profile_path(profile.user, profile) %>
+  <%= link_to 'Delete', [profile.user, profile],
+               method: :delete,
+               data: { confirm: 'Are you sure?' } %>
+<% end %>
+
+</p>

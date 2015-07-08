@@ -35,6 +35,7 @@ class PostsController < ApplicationController
     @post = Post.find params[:id]
     user_id = @post.user_id
     @user = User.find(user_id)
+    @profile = @user.profile 
   end
 
   def edit 

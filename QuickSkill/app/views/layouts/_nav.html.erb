@@ -1,0 +1,38 @@
+<!-- Menu -->
+	<nav class="menu" id="theMenu">
+		<div class="menu-wrap">
+			<h1 class="logo"><%= link_to "QuickSkill", root_path %></h1>
+			<i class="fa fa-arrow-right menu-close"></i>
+			<a>I want to... </a>
+			<a><%= link_to "Learn Something", looking_for_path %></a>
+			<a><%= link_to "Teach Something", offering_path %></a>
+			<hr>
+			<a><%= link_to "Find By Topic", topics_path %></a>
+			<a><%= link_to "View All Posts", posts_path %></a>
+			<hr>
+			<% if user_signed_in? %>
+			<% if current_user.profile.nil? %> 
+			<a><%= link_to "Create A Profile", new_user_profile_path(current_user)  %></a>
+			<% else %>
+			<a><%= link_to "Create A Post", new_post_path(current_user) %></a>
+			<a><%= link_to "My Profile", user_profile_path(current_user, current_user.profile)  %></a>
+			<% end %>
+			<a><%= link_to "Logout",  destroy_user_session_path, method: :delete %><a/>
+			<% else %>
+			<a><%= link_to "Sign up", new_user_registration_path %></a>
+			<a><%= link_to "Login", new_user_session_path %></a>
+			<% end %>
+			<hr>
+			<a href="about.html">About Us</a>
+			<a href="#contact">Contact</a>
+			<!-- <a href="#"><i class="fa fa-facebook"></i></a>
+			<a href="#"><i class="fa fa-twitter"></i></a>
+			<a href="#"><i class="fa fa-dribbble"></i></a>
+			<a href="#"><i class="fa fa-envelope"></i></a> -->
+		</div>
+		
+		<!-- Menu button -->
+		<div id="menuToggle"><i class="fa fa-bars"></i></div>
+	</nav>
+	
+

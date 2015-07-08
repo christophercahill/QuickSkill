@@ -1,7 +1,10 @@
 Rails.application.routes.draw do
-  devise_for :users, only: [:new, :create] do 
-    resources :posts   
-  end 
+
+  devise_for :users, only: [:new, :create]
+
+  resources :users, only: [] do
+    resources :profiles
+  end
 
   resources :posts do 
     resources :reviews 
@@ -15,7 +18,6 @@ Rails.application.routes.draw do
 
   get '/looking_for', to: 'posts#looking_for'
   get '/offering', to: 'posts#offering'
-
   get :send_contact_email, to: 'email#send_contact_email', as: :send_contact_email
 
   root 'welcome#index'

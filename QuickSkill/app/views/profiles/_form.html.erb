@@ -1,0 +1,18 @@
+<%= simple_form_for ([@user, @profile]) do |f| %>
+
+  <p>
+    <%= f.input :name %><br>
+  </p>
+  <p>
+    <%= f.input :location %><br>
+  </p>
+  <p>
+    <%= f.input :biography %><br>
+  </p>
+  <p>
+    <%= f.input :phone_number %><br>
+  </p>
+  <p>
+  	<%= f.button :submit %>
+  </p>
+<% end %>

@@ -1,0 +1,11 @@
+<p>Hey, <%= @profile.name%>!</p>
+<p>Email: <%= @user.email%></p>
+<p>Phone Number: <%= @profile.phone_number%></p>
+<p>Location: <%= @profile.location%></p>
+<p>Biography: <%= @profile.biography%></p>
+
+<ul> 
+<% @posts.each do |post| %>
+<li><%= link_to post.title, post_path(post) %></li>
+<% end %>
+</ul>

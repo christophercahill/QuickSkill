@@ -1,5 +1,6 @@
 <br>
 <ul> 
+<li><%= link_to @profile.name, user_profile_path(@profile.user_id, @profile) %></li>
 <li><%= @post.title %></li>
 
 <% topic = Topic.find(@post.topic_id) %>
@@ -8,7 +9,6 @@
 <li><%= @post.location %></li>
 <li><%= @post.price %></li>
 <li><%= @post.description %></li>
-<li class="round-image-50"><%= image_tag(@user.avatar.url(:thumb)) %></li>
 
 </ul>
 
@@ -16,7 +16,7 @@
 
 <br> 
   <h3>Reviews</h3>
-<%= render @posts.reviews %>
+<%= render @post.reviews %>
 
 
 <h3>Add a review:</h3>
