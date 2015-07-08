@@ -39,6 +39,20 @@ Rails.application.configure do
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = 
 
-  config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
+   # ActionMailer Config
+  config.action_mailer.default_url_options = { :host => 'localhost:3000' }
+  # change to true to allow email to be sent during development
+  config.action_mailer.raise_delivery_errors = true
+  config.action_mailer.default :charset => "utf-8"
+  config.action_mailer.delivery_method = :sendmail
+  config.action_mailer.smtp_settings = {
+    address:              'smtp.gmail.com',
+    port:                 587,
+    domain:               'my_app.com',
+    user_name:            'quickskillsapp@gmail.com',
+    password:             'iXperience',
+    authentication:       'plain',
+    enable_starttls_auto: true  }  
+  config.action_mailer.perform_deliveries = true
 
 end
