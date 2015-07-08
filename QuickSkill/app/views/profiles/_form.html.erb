@@ -1,7 +1,6 @@
 <%= simple_form_for ([@user, @profile]) do |f| %>
-
   <p>
-    <%= f.input :name %><br>
+    <%= f.input :name, label: "Username:" %><br>
   </p>
   <p>
     <%= f.input :location %><br>
@@ -16,3 +15,4 @@
   	<%= f.button :submit %>
   </p>
 <% end %>
+

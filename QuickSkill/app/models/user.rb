@@ -1,8 +1,8 @@
 class User < ActiveRecord::Base
 
-  has_one :profile 
-  has_many :posts 
-  has_many :reviews 
+  has_one :profile, dependent: :destroy 
+  has_many :posts, dependent: :destroy  
+  has_many :reviews, dependent: :destroy 
 
   
   # Include default devise modules. Others available are:

@@ -1,35 +1,43 @@
 class ReviewsController < ApplicationController
 
   def index 
-     @post = Post.find(params[:post_id])
+    @profile = Profile.find(params[:profile_id])
   end
 
   def create
-  	@post = Post.find(params[:post_id])
-    @review = @post.reviews.create(review_params)
-    @review.user_id = current_user.id
-    @review.save
+  	@profile = Profile.find(params[:profile_id])
+    user_id = @profile.user_id
+    @user = User.find(user_id)
 
-    redirect_to post_path(@post)
+    @review = @profile.reviews.create(review_params)
+    @review.user_id = current_user.id
+    @review.save 
+    redirect_to user_profile_path(@user, @profile)
   end
 
  def destroy
-      @post = Post.find(params[:post_id])
-      @review = @post.reviews.find(params[:id])
+      @profile = Profile.find(params[:profile_id])
+      user_id = @profile.user_id
+      @user = User.find(user_id)
+      @review = @profile.reviews.find(params[:id])
       @review.destroy
-      redirect_to post_path(@post)
+      redirect_to user_profile_path(@user, @profile)
  end
 
  def edit
-    @post = Post.find(params[:post_id])
+    @profile = Profile.find(params[:profile_id])
+    user_id = @profile.user_id
+    @user = User.find(user_id)
     @review = Review.find(params[:id])
   end
 
  def update
-    @post = Post.find(params[:post_id])
-    @reivew = Review.find(params[:id])
+    @profile = Profile.find(params[:profile_id])
+    user_id = @profile.user_id
+    @user = User.find(user_id)
+    @review = Review.find(params[:id])
     if @review.update(review_params) 
-      redirect_to post_path(@post)
+      redirect_to user_profile_path(@user, @profile)
     else 
       render 'edit'
     end 

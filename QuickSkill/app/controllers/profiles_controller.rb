@@ -19,6 +19,8 @@ class ProfilesController < ApplicationController
 
   def edit 
     @profile = Profile.find params[:id]
+    user_id = @profile.user_id
+    @user = User.find(user_id)
   end
 
   def create
@@ -32,18 +34,20 @@ class ProfilesController < ApplicationController
   end
 
   def update 
-    @post = Post.find(params[:id])
-     if @post.update(post_params)
-        redirect_to @post
+    @profile = Profile.find(params[:id])
+    user_id = @profile.user_id
+    @user = User.find(user_id)
+     if @profile.update(profile_params)
+        redirect_to user_profile_path(@user, @profile)
       else
         render 'edit'
       end
   end 
 
   def destroy
-      @post = Post.find params[:id]
-      @post.destroy
-      redirect_to posts_path(current_user)
+      @profile = Profile.find params[:id]
+      @profile.destroy
+      redirect_to root_path
   end
 
   private

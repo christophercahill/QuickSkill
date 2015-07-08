@@ -1,17 +1,33 @@
 <p>
-  <strong>Profile</strong>
-  <%= profile.name %>
-  <%= profile.location %>
-  <%= profile.biography %>
+  <ul> 
+  <li>Username: <%= @profile.name %></li>
+  <li>Email: <%= @user.email %></li>
+  <li>Location: <%= @profile.location %></li>
+  <li>Biography: <%= @profile.biography %></li>
+  <li>Phone Number: <%= @profile.phone_number%> </li>
 </p>
 
-<p>
-
-<% if current_user.id == profile.user_id %>
-<%= link_to 'Edit', edit_user_profile_path(profile.user, profile) %>
-  <%= link_to 'Delete', [profile.user, profile],
+<% if current_user.id == @profile.user_id %>
+<%= link_to 'Edit', edit_user_profile_path(@profile.user, @profile) %>
+<br>
+<%= link_to 'Delete', [@profile.user, @profile],
                method: :delete,
                data: { confirm: 'Are you sure?' } %>
 <% end %>
 
-</p>
+<br>
+
+<p>Posts </p>
+<ul> 
+<% @posts.each do |post| %>
+<li><%= link_to post.title, post_path(post) %></li>
+<% end %>
+</ul>
+
+<br>
+<h3>Reviews</h3>
+<%= render @profile.reviews %>
+
+<h3>Add a review:</h3>
+<% @review = Review.new %>
+<%= render 'reviews/form' %>

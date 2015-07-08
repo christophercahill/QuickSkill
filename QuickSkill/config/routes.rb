@@ -6,7 +6,9 @@ Rails.application.routes.draw do
     resources :profiles
   end
 
-  resources :posts do 
+  resources :posts  
+
+  resources :profiles do 
     resources :reviews 
   end 
 
@@ -19,6 +21,9 @@ Rails.application.routes.draw do
   get '/looking_for', to: 'posts#looking_for'
   get '/offering', to: 'posts#offering'
   get :send_contact_email, to: 'email#send_contact_email', as: :send_contact_email
+
+  get '/about', to: 'welcome#about'
+  get '/contact', to: 'welcome#contact'
 
   root 'welcome#index'
 

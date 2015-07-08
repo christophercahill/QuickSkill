@@ -13,7 +13,7 @@ class PostsController < ApplicationController
     @all_posts = Post.all
     @posts = []
     @all_posts.each do |post|
-      if post.looking_for 
+      if post.looking_for == false
         @posts << post 
       end 
     end 
@@ -24,7 +24,7 @@ class PostsController < ApplicationController
     @all_posts = Post.all
     @posts = []
     @all_posts.each do |post|
-      if post.looking_for == false 
+      if post.looking_for 
         @posts << post 
       end 
     end 
@@ -46,7 +46,7 @@ class PostsController < ApplicationController
     @post = Post.new(post_params)
     @post.user_id = current_user.id
     if @post.save 
-      redirect_to posts_path(current_user)
+      redirect_to post_path(@post)
     else 
       render 'new'
     end 
