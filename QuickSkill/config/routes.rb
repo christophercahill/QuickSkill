@@ -16,6 +16,8 @@ Rails.application.routes.draw do
   get '/looking_for', to: 'posts#looking_for'
   get '/offering', to: 'posts#offering'
 
+  get :send_contact_email, to: 'email#send_contact_email', as: :send_contact_email
+
   root 'welcome#index'
 
   # The priority is based upon order of creation: first created -> highest priority.
