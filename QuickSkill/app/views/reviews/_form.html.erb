@@ -1,0 +1,10 @@
+
+<%= simple_form_for ([@post, @review]) do |f| %>
+
+  <p>
+    <%= f.input :body %><br>
+  </p>
+  <p>
+    <%= f.submit :rating %>
+  </p>
+<% end %>

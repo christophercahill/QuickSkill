@@ -1,0 +1,15 @@
+
+<p>
+  <strong>Review:</strong>
+  <%= review.body %>
+</p>
+
+<p>
+<% if current_user.id == review.user_id %>
+<%= link_to 'Edit', edit_post_review_path(review.post, review) %>
+  <%= link_to 'Delete', [review.post, review],
+               method: :delete,
+               data: { confirm: 'Are you sure?' } %>
+<% end %>
+
+</p>

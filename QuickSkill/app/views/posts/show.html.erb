@@ -15,7 +15,14 @@
 <%= link_to "Send Contact Email", {:controller => "email", :action => "send_contact_email", :post => @post.id }, data: { confirm: 'Are you certain you want to contact this person? Upon clicking yes, we will send the poster an email with your contact information.' } %>
 
 <br> 
+  <h3>Reviews</h3>
+<%= render @posts.reviews %>
 
+
+<h3>Add a review:</h3>
+
+<% @review = Review.new %>
+<%= render 'reviews/form' %>
 <%= link_to "Home", root_path %>
 
 
