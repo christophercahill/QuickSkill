@@ -41,6 +41,16 @@ Rails.application.configure do
 
    # ActionMailer Config
   config.action_mailer.default_url_options = { :host => 'localhost:3000' }
+
+  config.paperclip_defaults = {
+  :storage => :s3,
+  :s3_credentials => {
+    :bucket => ENV['S3_BUCKET_NAME'],
+    :access_key_id => ENV['AWS_ACCESS_KEY_ID'],
+    :secret_access_key => ENV['AWS_SECRET_ACCESS_KEY']
+  }
+}
+
   # change to true to allow email to be sent during development
   config.action_mailer.raise_delivery_errors = true
   config.action_mailer.default :charset => "utf-8"
@@ -53,6 +63,7 @@ Rails.application.configure do
     password:             'iXperience',
     authentication:       'plain',
     enable_starttls_auto: true  }  
+    
   config.action_mailer.perform_deliveries = true
 
 end

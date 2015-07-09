@@ -1,0 +1,9 @@
+staging:
+ access_key_id: AKIAI2HZEKA5SPDGCUVQ
+ secret_access_key: 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
+ bucket: quickskills
+
+production:
+ access_key_id: AKIAI2HZEKA5SPDGCUVQ
+ secret_access_key: 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
+ bucket: quickskills

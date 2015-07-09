@@ -6,6 +6,11 @@ require 'rails/all'
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
 
+ config.paperclip_defaults = {
+            :storage => :s3,
+            :s3_host_name => 's3-eu-west-1.amazonaws.com'
+ }
+ 
 module QuickSkill
   class Application < Rails::Application
     # Settings in config/environments/* take precedence over those specified here.
