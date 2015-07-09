@@ -10,7 +10,9 @@
 </div>
 </div>
 
-<%= image_tag @profile.avatar.url(:square) %>
+<% url = @profile.image_url %>
+<% usable_url = "#{url}" %>
+<img id="image" src=<%="#{usable_url}"%> alt="" width="200">
 
 <h3><b>EMAIL</b></h3>
 		  	<p><%= @user.email %></p>
