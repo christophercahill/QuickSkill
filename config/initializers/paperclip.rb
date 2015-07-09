@@ -1,11 +1,3 @@
-require 'paperclip/media_type_spoof_detector'
-module Paperclip
-  class MediaTypeSpoofDetector
-    def spoofed?
-      false
-    end
-  end
-end
 
 # config/initializers/paperclip.rb
 Paperclip::Attachment.default_options[:url] = ':s3_domain_url'
