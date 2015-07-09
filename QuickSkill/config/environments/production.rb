@@ -94,5 +94,15 @@ Rails.application.configure do
    :authentication       => "plain",
    :enable_starttls_auto => true
  }
- 
+
+   # config/environments/production.rb
+ config.paperclip_defaults = {
+    :storage => :s3,
+    :s3_credentials => {
+      :bucket => ENV['quickskills'],
+      :access_key_id => ENV['AKIAI2HZEKA5SPDGCUVQ'],
+      :secret_access_key => ENV['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']
+    }
+ }
+   
 end
