@@ -6,6 +6,9 @@ Rails.application.routes.draw do
     resources :profiles
   end
 
+ get '/posts/search' => 'posts#search'
+
+
   resources :posts  
 
   resources :profiles do 

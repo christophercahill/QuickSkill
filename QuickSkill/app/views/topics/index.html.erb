@@ -1,7 +1,26 @@
-<h1>Index Home Page</h1>
+    <div class="row">
+    	<div class="box">
+    		<div class="col-lg-12">
+    			<hr>
+    			<h2 class="intro-text text-center">
+    				<strong>topics</strong>
+    			</h2>
+    			<hr>
+    		</div>
+    	</div>
+    </div>
 
-<ul> 
-<% @topics.each do |topic| %>
-<li><%= link_to topic.name, topic_path(topic) %></li>
-<% end %>
-</ul>
+    <div class="row">
+        	<div class="box">
+    			<div class="col-lg-12">
+    				<div class="topics">
+    					<h3><% @topics.each do |topic| %>
+    						<%= link_to topic.name, topic_path(topic), class: 'link-to-text-color' %>
+    						<hr>
+
+    						<% end %></h3>
+    					</div>
+    				</div>
+    			</div>
+    		</div>
+    	</div>

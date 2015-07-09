@@ -3,11 +3,17 @@ class PostsController < ApplicationController
   def new 
     @post = Post.new
   end 
-
-#will have to change 
+ 
   def index
     @posts = Post.all 
+    
   end
+
+  def search
+    @posts = Post.search(params[:search])
+    render :index
+  end
+
 
   def looking_for 
     @all_posts = Post.all
