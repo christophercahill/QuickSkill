@@ -1,22 +1,48 @@
-<br>
-<ul> 
-<li>From: <%= link_to @profile.name, user_profile_path(@profile.user_id, @profile) %></li>
-<li><%= @post.title %></li>
-
+<div class="row">
+            <div class="box">
+                <div class="col-lg-12">
+                    <div class="post-heading">
+                    <hr>
+ <div class="col-lg-6 col-lg-offset-4">
+<div class="heading">
+<h1><%= @post.title %> </h1>
+<h2>By: <%= link_to @profile.name, user_profile_path(@profile.user_id, @profile), class: 'link-to-text-color' %></h2>
+<hr>
+</div>
+</div>
 <% topic = Topic.find(@post.topic_id) %>
+<h3><b>TOPIC</b></h3>
+		  	<p><%= topic.name %></p>
+		  	<br>
+		  	<h3><b>LOCATION</b></h3>
+		  	<p><%= @post.location %></p>
+		  	<br>
+		  	<h3><b>PRICE</b></h3>
+		  	<p><%= @post.price %></p>
+		  	<br>
+		  	<h3><b>DESCRIPTION</b></h3>
+		  	<p><%= @post.description %></p>
 
-<li><%= topic.name %></li>
-<li><%= @post.location %></li>
-<li><%= @post.price %></li>
-<li><%= @post.description %></li>
-
-</ul>
-
-<%= link_to "Send Contact Email", {:controller => "email", :action => "send_contact_email", :post => @post.id }, data: { confirm: 'Are you certain you want to contact this person? Upon clicking yes, we will send the poster an email with your contact information.' } %>
+<% if user_signed_in? %>
+<h2>
+<%= link_to "Send Contact Email", {:controller => "email", :action => "send_contact_email", :post => @post.id }, data: { confirm: 'Are you certain you want to contact this person? Upon clicking yes, we will send the poster an email with your contact information.' }, class: 'link-to-text-color' %></h2>
 
 <br> 
+<% if user_signed_in? %>
+<% if current_user.id == @post.user_id %>
+<%= link_to 'Edit', edit_post_path(@post), class: 'link-to-text-color' %>
+  <%= link_to 'Delete', post_path(@post),
+               method: :delete, class: 'link-to-text-color',
+              data: { confirm: 'Are you sure?' } 
+              %>
+<% end %>
+<% end %>
+<%end %>
 
-<%= link_to "Home", root_path %>
 
+</div>
+</div>
+</div>
+</div>
 
 

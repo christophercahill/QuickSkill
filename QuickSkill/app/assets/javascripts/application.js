@@ -13,10 +13,5 @@
 //= require jquery
 //= require jquery_ujs
 //= require twitter/bootstrap
-//= require main
-//= require masonry.pkgd.min
-//= require imagesloaded
-//= require classie
-//= require AnimOnScroll
 //= require turbolinks
 //= require_tree .
