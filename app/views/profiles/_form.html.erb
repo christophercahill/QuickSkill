@@ -1,20 +1,19 @@
-<%= form_for @profile, :html => { :multipart => true } do |f| %>
-
+<%= simple_form_for ([@user, @profile]), html: {multipart: true} do |f| %>
   <p>
-    <%= f.text_field :name %>
+    <%= f.input :name, label: "Username:" %><br>
   </p>
   <div class="field">
     <%= f.label :avatar %>
     <%= f.file_field :avatar %>
   </div>
   <p>
-    <%= f.text_field :location %><br>
+    <%= f.input :location %><br>
   </p>
   <p>
-    <%= f.text_field :biography %>
+    <%= f.input :biography %><br>
   </p>
   <p>
-    <%= f.text_field :phone_number %>
+    <%= f.input :phone_number %><br>
   </p>
   <p>
   	<%= f.button :submit %>
