@@ -99,9 +99,9 @@ Rails.application.configure do
  config.paperclip_defaults = {
     :storage => :s3,
     :s3_credentials => {
-      :bucket => ENV['quickskills'],
-      :access_key_id => ENV['AKIAI2HZEKA5SPDGCUVQ'],
-      :secret_access_key => ENV['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']
+      :bucket => "quickskills",
+      :access_key_id => "AKIAI2HZEKA5SPDGCUVQ",
+      :secret_access_key => "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"
     }
  }
    
