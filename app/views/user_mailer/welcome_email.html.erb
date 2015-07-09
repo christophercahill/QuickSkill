@@ -4,12 +4,12 @@
     <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
   </head>
   <body>
-    <h1>Hey,</h1>
-    <p>
-      Someone is interested in your post "<%= @post.title %>" on QuickSkill. Their email is <%= @sender.email %>. <br>
+    <h1>Hey <%= @recipient.profile.name %>,</h1>
+    <h2>
+      Someone is interested in your post "<%= @post.title %>" on QuickSkill. Their email is <%= @sender.email %>. <br><br>
       Give them a shout!<br>
-    </p>
-    <p>Have a great day, <br><br>The QuickSkill Team</p>
+    </h2>
+    <h2>Have a great day, <br><br>The QuickSkill Team</h2>
   </body>
 </html>
 

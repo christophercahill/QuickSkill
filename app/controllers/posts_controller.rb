@@ -23,7 +23,7 @@ class PostsController < ApplicationController
         @posts << post 
       end 
     end 
-    @posts 
+    @posts = @posts.reverse
   end 
 
   def offering  
@@ -34,7 +34,7 @@ class PostsController < ApplicationController
         @posts << post 
       end 
     end 
-    @posts 
+    @posts = @posts.reverse
   end 
 
   def show 

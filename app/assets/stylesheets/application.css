@@ -98,4 +98,19 @@
     text-decoration: none;
 }
 
+.profile-heading {
+	text-align:center;
+}
 
+.name {
+	color:#808080;
+	font-weight: 100;
+}
+
+.reviewform {
+	background:none;
+}
+
+p {
+	font-size: 25px;
+}
