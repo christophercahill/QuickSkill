@@ -42733,3 +42733,24 @@ Processing by WelcomeController#index as HTML
   Rendered layouts/_nav.html.erb (2.7ms)
   Rendered layouts/_footer.html.erb (0.0ms)
 Completed 200 OK in 35ms (Views: 34.7ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/" for ::1 at 2015-07-09 15:45:28 +0200
+  [1m[36mActiveRecord::SchemaMigration Load (0.7ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.erb within layouts/application (2.3ms)
+  [1m[35mUser Load (1.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1  [["id", 23]]
+  [1m[36mProfile Load (0.4ms)[0m  [1mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1[0m  [["user_id", 23]]
+  Rendered layouts/_nav.html.erb (77.0ms)
+  Rendered layouts/_footer.html.erb (0.3ms)
+Completed 200 OK in 959ms (Views: 937.2ms | ActiveRecord: 8.2ms)
+
+
+Started GET "/" for ::1 at 2015-07-09 15:45:31 +0200
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.erb within layouts/application (0.6ms)
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1  [["id", 23]]
+  [1m[36mProfile Load (0.2ms)[0m  [1mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT 1[0m  [["user_id", 23]]
+  Rendered layouts/_nav.html.erb (3.6ms)
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 30ms (Views: 28.9ms | ActiveRecord: 0.6ms)
