@@ -95,7 +95,7 @@ Rails.application.configure do
    :enable_starttls_auto => true
  }
 
-   # config/environments/production.rb
+#   config/environments/production.rb
 config.paperclip_defaults = {
   :storage => :s3,
   :s3_credentials => {
@@ -105,7 +105,7 @@ config.paperclip_defaults = {
   }
 }
 
- config.action_controller.asset_host = "//#{ENV['FOG_DIRECTORY']}.s3.amazonaws.com"
+ # config.action_controller.asset_host = "//#{ENV['FOG_DIRECTORY']}.s3.amazonaws.com"
 
 
 end
