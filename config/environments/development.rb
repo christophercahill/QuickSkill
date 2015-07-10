@@ -60,7 +60,7 @@ Rails.application.configure do
     port:                 587,
     domain:               'my_app.com',
     user_name:            'quickskillsapp@gmail.com',
-    password:             'iXperience',
+    password:             'iXperience1',
     authentication:       'plain',
     enable_starttls_auto: true  }  
     

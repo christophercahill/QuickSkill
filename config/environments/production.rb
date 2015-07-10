@@ -91,7 +91,7 @@ Rails.application.configure do
    :address              => "smtp.gmail.com",
    :port                 => "587",
    :user_name            => 'quickskillsapp@gmail.com',
-   :password             => 'iXperience',
+   :password             => 'iXperience1',
    :authentication       => "plain",
    :enable_starttls_auto => true
  }
