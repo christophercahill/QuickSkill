@@ -83,16 +83,17 @@ Rails.application.configure do
   # Setup for production - deliveries, no errors raised
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.perform_deliveries = true
-  config.action_mailer.raise_delivery_errors = true
+  config.action_mailer.raise_delivery_errors = false
   config.action_mailer.default :charset => "utf-8"
 
   # SMTP settings for gmail
   config.action_mailer.smtp_settings = {
-   :address              => "smtp.gmail.com",
+   :address              => "smtp.sendgrid.net",
    :port                 => "587",
-   :user_name            => 'quickskillsapp@gmail.com',
-   :password             => 'iXperience1',
+   :user_name            => ENV['SENDGRID_USERNAME'], 
+   :password             => ENV['SENDGRID_PASSWORD'], 
    :authentication       => "plain",
+   :domain               => "quickskill.herokuapp.com", 
    :enable_starttls_auto => true
  }
 
