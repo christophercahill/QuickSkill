@@ -39,9 +39,6 @@ Rails.application.configure do
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = 
 
-   # ActionMailer Config
-  config.action_mailer.default_url_options = { :host => 'localhost:3000' }
-
 #   config.paperclip_defaults = {
 #   :storage => :s3,
 #   :s3_credentials => {
@@ -51,19 +48,23 @@ Rails.application.configure do
 #   }
 # }
 
-  # change to true to allow email to be sent during development
-  config.action_mailer.raise_delivery_errors = true
-  config.action_mailer.default :charset => "utf-8"
-  config.action_mailer.delivery_method = :sendmail
-  config.action_mailer.smtp_settings = {
-    address:              'smtp.gmail.com',
-    port:                 587,
-    domain:               'my_app.com',
-    user_name:            'quickskillsapp@gmail.com',
-    password:             'iXperience1',
-    authentication:       'plain',
-    enable_starttls_auto: true  }  
-    
-  config.action_mailer.perform_deliveries = true
+  config.action_mailer.default_url_options = { :host => 'quickskill.herokuapp.com' }
 
+  # ActionMailer Config
+  # Setup for production - deliveries, no errors raised
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.perform_deliveries = true
+  config.action_mailer.raise_delivery_errors = false
+  config.action_mailer.default :charset => "utf-8"
+
+  # SMTP settings for gmail
+  config.action_mailer.smtp_settings = {
+   :address              => "smtp.gmail.com",
+   :port                 => "587",
+   :user_name            => 'quickskillsapp@gmail.com',
+   :password             => 'iXperience1',
+   :authentication       => "plain",
+   :enable_starttls_auto => true
+ }
+ 
 end
