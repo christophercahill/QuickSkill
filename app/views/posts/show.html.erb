@@ -9,7 +9,7 @@
 <h2>By: <%= link_to @profile.name, user_profile_path(@profile.user_id, @profile), class: 'link-to-text-color' %></h2>
 <hr>
 </div>
-</div>
+
 <% topic = Topic.find(@post.topic_id) %>
 <h3><b>TOPIC</b></h3>
 		  	<p><%= topic.name %></p>
@@ -39,7 +39,7 @@
 <% end %>
 <%end %>
 
-
+</div>
 </div>
 </div>
 </div>

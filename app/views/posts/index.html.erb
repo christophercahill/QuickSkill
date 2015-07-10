@@ -1,3 +1,45 @@
+<br><br>
+
+<div class="container">
+
+    <ol class="breadcrumb">
+     
+    </ol>
+
+    <div class="row">
+
+      <!-- Article main content -->
+      <article class="col-md-12 maincontent">
+        <header class="page-header">
+<div class="title">
+         <h1 class="page-title text-center"><strong>All Posts</strong></h1>
+         <h2 class="intro-text">Search All Posts
+                </h2>
+                <hr>
+                <%= form_tag(posts_search_path, :method => "get", id: "search-form") do %>
+                <%= text_field_tag :search, params[:search] %>
+                <%= submit_tag "Search", :name => nil %>
+                <% end %> </h2>
+                <hr>
+                </div>
+          <% @posts.each do |post| %>
+                    <% user_id = post.user_id %>
+                    <% @user = User.find(user_id) %>
+                    <%  @profile = @user.profile %>
+        
+        </header>
+<h2><%= link_to post.title, post_path(post), class: 'link-to-text-color' %></h2>
+        <h3><%= @profile.name%></h3>
+        <p><%= post.description %></p>
+        <hr>
+        <%end%>
+
+
+      </article>
+<!-- /.container -
+
+
+
 <div class="container">
 
     <div class="row">

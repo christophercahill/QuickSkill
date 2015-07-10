@@ -1,35 +1,21 @@
-  <div class="container">
+    
 
-    <div class="row">
-        <div class="box">
-            <div class="col-lg-12 text-center">
-                <h2 class="brand-before">
-                    Welcome To 
-                </h2>
-                <h1 class="brand-name">Quickskill</h1>
-                <hr class="tagline-divider">
-                <p class = "intro-question">
-                    <small>
-                        <strong>I want to...</strong>
-                    </small>
-                </p>
-
-
+    <header id="head">
+        <div class="container">
+            <div class="row">
+            <div class="intro-stuff">
+            <div class="title-heading">
+                <h1 class="lead">Welcome To QuickSkill</h1>
+                <h2 class="tagline"><strong>I want to... </strong></h2>
+                </div>
+                <p><div class="btn btn-default btn-lg" role="button"><%= link_to "Learn", looking_for_path, class: 'link-to-text-color' %></div> <div class="btn btn-default btn-lg" role="button"><%= link_to "Teach", offering_path, class: 'link-to-text-color' %></div></p>
             </div>
-                <div class="col-md-6">
-                <div class="left-button">
-                    <button type="button" class="btn"><%= link_to "Learn", looking_for_path, class: 'link-to-text-color' %></button>
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <button type="button" class="btn"><%= link_to "Teach", offering_path, class: 'link-to-text-color' %></button>
-                </div>
-                <div class="clearfix"></div>
-                                <hr>
-
+            </div>
         </div>
-    </div>
-</div>
+    </header>
+
+
+
 
 
 

@@ -1,59 +1,51 @@
-   <div class="brand"><%= link_to "QuickSkill", root_path, class: 'link-to-home' %></div>
-   <% if user_signed_in? && !current_user.profile.nil? %>
-    <div class="address-bar">
-    <% url = "Signed in as " + current_user.email %>
-	<%= link_to url, user_profile_path(current_user, current_user.profile), class: 'profile-sign-in'  %></div>
-    <% end %>
-<div class="container">
-   <!-- Navigation -->
-    <nav class="navbar navbar-default" role="navigation">
+    <div class="navigation"><!-- Fixed navbar -->
+    <div class="navbar navbar-inverse navbar-fixed-top headroom" >
         <div class="container">
-            <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <!-- navbar-brand is hidden on larger screens, but visible when the menu is collapsed -->
-                <a class="navbar-brand" href="index.html">Business Casual</a>
+                <!-- Button for smallest screens -->
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse"><span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
+                <a class="navbar-brand"><%= link_to "QuickSkill", root_path, class: 'link-to-home' %></a> <br>
+                <% if user_signed_in? && !current_user.profile.nil? %>
+    <% url = "Signed in as " + current_user.email %>
+    <%= link_to url, user_profile_path(current_user, current_user.profile), class: 'profile-sign-in'  %>
+    <% end %>
+
             </div>
-            <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav">
-                    	
-			
-			<li><%= link_to "Learn Something | ", looking_for_path %></li>
-			<li><%= link_to "Teach Something | ", offering_path %></li>
-		
-			<li><%= link_to "Find By Topic | ", topics_path %></li>
-			<li><%= link_to " All Posts", posts_path %></li>
-			    </ul>
-                </div>
-                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav">
-			<% if user_signed_in? %>
-			<% if current_user.profile.nil? %> 
-			<li><%= link_to "Create A Profile | ", new_user_profile_path(current_user)  %></li>
-			<% else %>
-			<li><%= link_to "Create A Post | ", new_post_path(current_user) %></li>
-			<li><%= link_to "Visit My Profile | ", user_profile_path(current_user, current_user.profile)  %></li>
-			<% end %>
-			<li><%= link_to "Logout | ",  destroy_user_session_path, method: :delete %></li>
-			<% else %>
-			<li><%= link_to "Sign up | ", new_user_registration_path %></li>
-			<li><%= link_to "Login | ", new_user_session_path %></li>
-			<% end %>
-	
-			<li><%= link_to "About Us", about_path %></li>
-		</div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav pull-right">
+           
+                 
+                    <li><%= link_to "Find By Topic", topics_path %></li>
+                            <li><%= link_to "Learn Something", looking_for_path %></li>
+                            <li><%= link_to "Teach Something", offering_path %></li>
+                               <li><%= link_to " All Posts", posts_path %></li>
+                             <br>
+                             <% if user_signed_in? %>
+            <% if current_user.profile.nil? %> 
+            <li><%= link_to "Create A Profile", new_user_profile_path(current_user)  %></li>
+            
+            <% else %>
+            <li><%= link_to "Create A Post", new_post_path(current_user) %></li>
+            <li><%= link_to "Visit My Profile", user_profile_path(current_user, current_user.profile)  %></li>
+            <% end %>
+            <% end %>
+                     <li><%= link_to "About Us", about_path %></li>    
+                 
+                    <% if user_signed_in? %>
+                    <li><%= link_to "Logout", destroy_user_session_path, :method => :delete %></li>
+                        <% else %>
+                        <li><%= link_to "Sign up", new_user_registration_path %></li>
+                        <li><%= link_to "Login", new_user_session_path %></li>
+                        <% end %>
+                        </ul>
+                    </li>
                 </ul>
-            </div>
-            <!-- /.navbar-collapse -->
+            </div><!--/.nav-collapse -->
         </div>
-        <!-- /.container -->
-    </nav>
+    </div>
+    </div>
+    <!-- /.navbar -->
+
 
 
 	

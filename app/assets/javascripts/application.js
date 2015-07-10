@@ -13,5 +13,12 @@
 //= require jquery
 //= require jquery_ujs
 //= require twitter/bootstrap
-//= require turbolinks
+//= require headroom.min
+//= require jQuery.headroom.min
+//= require template
+//= require google-map
+//= require html5shiv
+//= require respond.min
 //= require_tree .
+
+
