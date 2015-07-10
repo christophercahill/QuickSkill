@@ -59,12 +59,13 @@ Rails.application.configure do
 
   # SMTP settings for gmail
   config.action_mailer.smtp_settings = {
-   :address              => "smtp.gmail.com",
+   :address              => "smtp.sendgrid.net",
    :port                 => "587",
-   :user_name            => 'quickskillsapp@gmail.com',
-   :password             => 'iXperience1',
+   :user_name            => ENV['SENDGRID_USERNAME'], 
+   :password             => ENV['SENDGRID_PASSWORD'], 
    :authentication       => "plain",
+   :domain               => "quickskill.herokuapp.com", 
    :enable_starttls_auto => true
  }
- 
+
 end
